@@ -5,7 +5,9 @@ using System.ComponentModel;
 public partial class Pelay : CharacterBody2D
 {
 	[Export]
-	public AnimatedSprite2D animatedSprite2D;
+	private AudioStreamPlayer2D audioStreamPlayer2D;
+	[Export]
+	private AnimatedSprite2D animatedSprite2D;
 	public const float Speed = 130.0f;
 	public const float JumpVelocity = -300.0f;
 
@@ -38,6 +40,7 @@ public partial class Pelay : CharacterBody2D
 		if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
 		{
 			velocity.Y = JumpVelocity;
+			audioStreamPlayer2D.Play();
 		}
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.

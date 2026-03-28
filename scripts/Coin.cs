@@ -16,12 +16,9 @@ public partial class Coin : Area2D
 	{
 
 		// GD.Print("Coin +1: " + body.Name);
-		if (aounds != null)
-		{
-			aounds.Play();
-			aounds.Dispose();
-			animationPlayer.Play("coin/destory");
-		}
+		SetDeferred("monitoring", false);
+		aounds.Play();
+		animationPlayer.Play("coin/destory");
 	}
 	async private void Destory()
 	{
