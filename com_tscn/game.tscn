@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://fbovbbk3yem2"]
+
+[ext_resource type="PackedScene" uid="uid://oo8qy4q4mj7j" path="res://com_tscn/Player.tscn" id="1_wb20t"]
+[ext_resource type="PackedScene" uid="uid://o2liwih7kaqv" path="res://com_tscn/level/lavel_0.tscn" id="2_86srb"]
+[ext_resource type="AudioStream" uid="uid://bdnyeff8ak6xx" path="res://assets/music/time_for_adventure.mp3" id="3_86srb"]
+
+[node name="Game" type="Node2D" unique_id=2111340620]
+
+[node name="Player" parent="." unique_id=1250846774 instance=ExtResource("1_wb20t")]
+position = Vector2(40, 81)
+
+[node name="Lavel0" parent="." unique_id=1871427908 instance=ExtResource("2_86srb")]
+
+[node name="TimeForAdventure" type="AudioStreamPlayer2D" parent="." unique_id=1206496257]
+position = Vector2(471, 118)
+stream = ExtResource("3_86srb")
+autoplay = true
