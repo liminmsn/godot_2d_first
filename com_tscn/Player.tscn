@@ -19,6 +19,38 @@ region = Rect2(64, 0, 32, 32)
 atlas = ExtResource("2_2r62v")
 region = Rect2(96, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0tt4"]
+atlas = ExtResource("2_2r62v")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2r62v"]
+atlas = ExtResource("2_2r62v")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mryps"]
+atlas = ExtResource("2_2r62v")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spmen"]
+atlas = ExtResource("2_2r62v")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2q5te"]
+atlas = ExtResource("2_2r62v")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edix6"]
+atlas = ExtResource("2_2r62v")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bj00l"]
+atlas = ExtResource("2_2r62v")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucew3"]
+atlas = ExtResource("2_2r62v")
+region = Rect2(96, 96, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_dhdw7"]
 animations = [{
 "frames": [{
@@ -35,7 +67,41 @@ animations = [{
 "texture": SubResource("AtlasTexture_wsklp")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0tt4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2r62v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mryps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spmen")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2q5te")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edix6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bj00l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucew3")
+}],
+"loop": false,
+"name": &"run",
 "speed": 5.0
 }]
 
@@ -56,8 +122,10 @@ position_smoothing_enabled = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1446349987]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_dhdw7")
-autoplay = "default"
-frame_progress = 0.83745474
+animation = &"run"
+autoplay = "idle"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=98840976]
 position = Vector2(0, 6)

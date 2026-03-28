@@ -11,29 +11,39 @@ public partial class Pelay : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
-		Vector2 velocity = Velocity;
+		if (!IsInstanceValid(animatedSprite2D))
+			return;
+		// ✅ 动画状态控制（重点）
+		if (!IsOnFloor())
+		{
+			animatedSprite2D.Play("jump");
+		}
+		else if (Mathf.Abs(Velocity.X) > 1)
+		{
+			animatedSprite2D.Play("run");
+		}
+		else
+		{
+			animatedSprite2D.Play("idle");
+		}
 
+
+		Vector2 velocity = Velocity;
 		// Add the gravity.
 		if (!IsOnFloor())
 		{
 			velocity += GetGravity() * (float)delta;
 		}
-
 		// Handle Jump.
 		if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
 		{
 			velocity.Y = JumpVelocity;
 		}
-
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
 		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
 		if (direction != Vector2.Zero)
 		{
-			// if(direction.X > 0)
-			// {
-
-			// }
 			animatedSprite2D.FlipH = direction.X < 0;
 			velocity.X = direction.X * Speed;
 		}

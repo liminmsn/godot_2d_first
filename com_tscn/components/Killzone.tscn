@@ -1,12 +1,18 @@
 [gd_scene format=3 uid="uid://dnn6foxwma4ux"]
 
 [ext_resource type="Script" uid="uid://b0ntou1disl6s" path="res://scripts/Killzone.cs" id="1_a18nx"]
+[ext_resource type="AudioStream" uid="uid://dvymi8r2bh7dx" path="res://assets/sounds/explosion.wav" id="2_ojq81"]
 
-[node name="Killzone" type="Area2D" unique_id=991615960 node_paths=PackedStringArray("time")]
+[node name="Killzone" type="Area2D" unique_id=991615960 node_paths=PackedStringArray("aounds", "time")]
 script = ExtResource("1_a18nx")
+aounds = NodePath("Explosion")
 time = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="." unique_id=772029208]
+
+[node name="Explosion" type="AudioStreamPlayer2D" parent="." unique_id=1931272559]
+position = Vector2(110, 109)
+stream = ExtResource("2_ojq81")
 
 [connection signal="body_entered" from="." to="." method="OnBodyEntered"]
 [connection signal="timeout" from="Timer" to="." method="OnTimeout"]
